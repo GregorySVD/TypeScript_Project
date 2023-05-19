@@ -6,6 +6,5 @@ export enum RestaurantEventName {
 }
 
 export type RestaurantEvent = (eventName: RestaurantEventName) => { boolean; }
-export type RestaurantTableCountChangeEvent = (eventName: RestaurantEventName.TableCountUpdate, incDec: number) => {
-     boolean;
-}
+export type RestaurantTableCountChangeEvent = (eventName: RestaurantEventName.TableCountUpdate, incDec: number) => boolean;
+export type RestaurantTableCountChangeCallback = (incDec: number) => void;
