@@ -10,24 +10,28 @@ export class Restaurant extends EventEmitter {
     close() {
         this.emit(RestaurantEventName.Close);
     }
+    //Created private method to change table count
+    private changeTableCount(incDec: number) {
+        (this.emit as RestaurantTableCountChangeEvent)(RestaurantEventName.TableCountUpdate, incDec);
+    }
 
     reserveTable() {
-        (this.emit as RestaurantTableCountChangeEvent)(RestaurantEventName.TableCountUpdate, -1);
+        this.changeTableCount(-1);
     }
 
     cancelTableReservation() {
-        (this.emit as RestaurantTableCountChangeEvent)(RestaurantEventName.TableCountUpdate, 1);
+        this.changeTableCount(1);
     }
 
     takeTableWithoutReservation() {
-        (this.emit as RestaurantTableCountChangeEvent)(RestaurantEventName.TableCountUpdate, -1);
+        this.changeTableCount(1);
     }
 
     markTableAsBroken() {
-        (this.emit as RestaurantTableCountChangeEvent)(RestaurantEventName.TableCountUpdate, -1);
+        this.changeTableCount(-1);
     }
 
     cleanupTable() {
-        (this.emit as RestaurantTableCountChangeEvent)(RestaurantEventName.TableCountUpdate, 1);
+        this.changeTableCount(1);
     }
 }
