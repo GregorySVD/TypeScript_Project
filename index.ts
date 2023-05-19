@@ -1,14 +1,15 @@
-
+import {Restaurant} from "./restaurant";
+import {RestaurantEventName} from "./types/restaurant-events";
 
 const megaRestaurant = new Restaurant();
-let tablesCount = 25;
+let tablesCount: number = 25;
 
 megaRestaurant
-    .on('open', () => console.log('Otwarto restaurację.'))
-    .on('close', () => console.log('Zamknięto restaurację.'))
-    .on('tableCountUpdate', change => {
+    .on(RestaurantEventName.Open, () => console.log('Restaurant is open'))
+    .on(RestaurantEventName.Close, () => console.log('Restaurant is closed'))
+    .on(RestaurantEventName.TableCountUpdate, change => {
         tablesCount += change;
-        console.log(`Dostepnych stolików ${tablesCount}.`);
+        console.log(`Available ${tablesCount}.`);
     });
 
 megaRestaurant.open(); // "Otwarto restaurację."
