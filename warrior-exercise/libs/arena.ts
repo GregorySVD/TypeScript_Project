@@ -1,4 +1,6 @@
-class Arena {
+import {Warrior} from "./warrior";
+
+export class Arena {
     constructor(
         private readonly warrior1 : Warrior,
         private readonly warrior2: Warrior,

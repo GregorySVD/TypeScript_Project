@@ -1,25 +1,29 @@
 import {SingleWarrior} from "../types";
 
 export class Warrior implements SingleWarrior {
-    constructor(public name: string, public hitPoints: number, public hp: number) {
-    }
-    setHp(hp : number) {
+    constructor(
+        // change access modifiers to private, because we use methods in out appi
+        private name: string,
+        private hitPoints: number,
+        private hp: number)
+    {}
+    setHp(hp : number): void {
         this.hp = hp;
     }
 
-    getHp() {
+    getHp(): number {
         return this.hp;
     }
 
-    getHitPoints() {
+    getHitPoints(): number {
         return this.hitPoints;
     }
 
-    getName() {
+    getName(): string {
         return this.name;
     }
 
-    levelUp() {
+    levelUp(): void {
         this.hitPoints *= 1.1;
         this.hp *= 1.1;
     }

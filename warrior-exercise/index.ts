@@ -1,4 +1,4 @@
-import {SingleWarrior} from './types/index';
+import {Warrior, Arena} from './types/index';
 
 
 
