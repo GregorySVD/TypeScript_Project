@@ -1,13 +1,9 @@
+import {SingleWarrior} from './types/index';
 
-
-class Warrior   {
-    constructor(name, hitPoints, hp) {
-        this.name = name;
-        this.hitPoints = hitPoints;
-        this.hp = hp;
+class Warrior implements SingleWarrior {
+    constructor(public name: string, public hitPoints: number, public hp: number) {
     }
-
-    setHp(hp) {
+    setHp(hp : number) {
         this.hp = hp;
     }
 
@@ -30,11 +26,13 @@ class Warrior   {
 }
 
 class Arena {
-    constructor(warrior1, warrior2) {
+    constructor(
+        private readonly warrior1 : Warrior,
+        private readonly warrior2: Warrior,
+        private activeWarrior: number) {
         if (!(warrior1 instanceof Warrior)) {
             throw new Error('warrior1 must be an instance of Warrior class!');
         }
-
         if (!(warrior2 instanceof Warrior)) {
             throw new Error('warrior2 must be an instance of Warrior class!');
         }
@@ -74,10 +72,10 @@ class Arena {
     }
 }
 
-const fighter1 = new Warrior('Baba Yaga', 9, 120);
+const fighter1 = new Warrior('Kicia', 9, 120);
 const fighter2 = new Warrior('Yanosik', 7, 140);
 
-const arena = new Arena(fighter1, fighter2);
+const arena = new Arena(fighter1, fighter2,2);
 
 let winner;
 do {
