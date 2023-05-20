@@ -1,30 +1,3 @@
-import {SingleWarrior} from './types/index';
-
-class Warrior implements SingleWarrior {
-    constructor(public name: string, public hitPoints: number, public hp: number) {
-    }
-    setHp(hp : number) {
-        this.hp = hp;
-    }
-
-    getHp() {
-        return this.hp;
-    }
-
-    getHitPoints() {
-        return this.hitPoints;
-    }
-
-    getName() {
-        return this.name;
-    }
-
-    levelUp() {
-        this.hitPoints *= 1.1;
-        this.hp *= 1.1;
-    }
-}
-
 class Arena {
     constructor(
         private readonly warrior1 : Warrior,
@@ -71,16 +44,3 @@ class Arena {
         return null;
     }
 }
-
-const fighter1 = new Warrior('Kicia', 9, 120);
-const fighter2 = new Warrior('Yanosik', 7, 140);
-
-const arena = new Arena(fighter1, fighter2,2);
-
-let winner;
-do {
-    winner = arena.fight();
-} while (winner === null);
-
-winner.levelUp();
-console.log(winner.getName(), 'is a winner!');
