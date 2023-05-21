@@ -1,20 +1,23 @@
 import {Warrior} from "./warrior";
 
-export class Arena {
-    constructor(
-        private readonly warrior1 : Warrior,
-        private readonly warrior2: Warrior,
-        private activeWarrior: number) {
-        if (!(warrior1 instanceof Warrior)) {
-            throw new Error('warrior1 must be an instance of Warrior class!');
-        }
-        if (!(warrior2 instanceof Warrior)) {
-            throw new Error('warrior2 must be an instance of Warrior class!');
-        }
+enum ActiveWarrior {
+    First,
+    Second,
+}
 
-        this.warrior1 = warrior1;
-        this.warrior2 = warrior2;
-        this.activeWarrior = 2;
+
+export class Arena {
+    private activeWarrior: ActiveWarrior = ActiveWarrior.Second;
+    constructor(
+        public warrior1 : Warrior,
+        public warrior2: Warrior, // insead of if (!(warrior1 instanceof Warrior)) {
+        // throw new Error('warrior1 must be an instance of Warrior class!');}
+       ) {
+        //
+        //
+        // this.warrior1 = warrior1;
+        // this.warrior2 = warrior2;
+        // this.activeWarrior = 2;
     }
 
     fight() {
