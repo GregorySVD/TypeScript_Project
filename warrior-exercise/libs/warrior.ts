@@ -1,6 +1,6 @@
-import {SingleWarrior} from "../types";
 
-export class Warrior implements SingleWarrior {
+
+export class Warrior {
     constructor(
         // change access modifiers to private, because we use methods in out appi
         private name: string,
