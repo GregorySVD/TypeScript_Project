@@ -8,7 +8,6 @@ enum ActiveWarrior {
 
 export class Arena {
     activeWarrior: ActiveWarrior = ActiveWarrior.Second;
-
     constructor(
         public warrior1: Warrior,
         public warrior2: Warrior, // insead of if (!(warrior1 instanceof Warrior)) {
